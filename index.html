@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Burton Designs — Interior Decorating & Spatial Styling</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cinzel:wght@400;500;600&family=Cormorant:ital@1&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --crimson: #3a0a0f;
+    --crimson-mid: #5c1a22;
+    --crimson-light: #7a2535;
+    --gold: #c9a84c;
+    --gold-light: #e2c47a;
+    --gold-pale: #f0dfa0;
+    --near-black: #0d0507;
+    --off-white: #f5f0e8;
+    --parchment: #e8dcc8;
+    --text-body: #d4c8b0;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--near-black);
+    color: var(--off-white);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.2rem 4rem;
+    display: flex; align-items: center; justify-content: space-between;
+    background: linear-gradient(to bottom, rgba(10,3,5,0.95) 0%, transparent 100%);
+    border-bottom: 0.5px solid rgba(201,168,76,0.2);
+    backdrop-filter: blur(4px);
+  }
+
+  .nav-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .nav-links { display: flex; gap: 3rem; list-style: none; }
+  .nav-links a {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: var(--text-body);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    border: 0.5px solid var(--gold);
+    padding: 0.6rem 1.4rem;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .nav-cta:hover { background: var(--gold); color: var(--near-black); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 8rem 2rem 6rem;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 40%, rgba(90,20,35,0.55) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(60,10,18,0.4) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 80% 10%, rgba(70,15,25,0.35) 0%, transparent 60%),
+      #0d0507;
+    z-index: 0;
+  }
+
+  .hero-texture {
+    position: absolute; inset: 0; z-index: 1;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.6;
+  }
+
+  .hero-border {
+    position: absolute; inset: 2rem; z-index: 2;
+    border: 0.5px solid rgba(201,168,76,0.25);
+    pointer-events: none;
+  }
+  .hero-border::before {
+    content: ''; position: absolute; inset: 6px;
+    border: 0.5px solid rgba(201,168,76,0.1);
+  }
+
+  .hero-content { position: relative; z-index: 3; text-align: center; max-width: 800px; }
+
+  .monogram {
+    width: 120px; height: 120px;
+    margin: 0 auto 2.5rem;
+    position: relative;
+  }
+
+  .monogram svg { width: 100%; height: 100%; }
+
+  .hero-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+    text-shadow: 0 0 60px rgba(201,168,76,0.3);
+  }
+
+  .hero-subtitle-rule {
+    display: flex; align-items: center; gap: 1.5rem;
+    justify-content: center; margin: 0.8rem 0;
+  }
+  .hero-subtitle-rule span { display: block; height: 0.5px; width: 60px; background: var(--gold); opacity: 0.6; }
+  .hero-subtitle-word {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.4em;
+    color: var(--crimson-light);
+    color: #a05070;
+  }
+
+  .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+    font-weight: 300;
+    color: var(--text-body);
+    margin: 2.5rem auto 1rem;
+    max-width: 560px;
+    line-height: 1.7;
+  }
+
+  .hero-sub-tagline {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    color: rgba(201,168,76,0.5);
+    margin-top: 0.5rem;
+  }
+
+  .hero-cta-group {
+    margin-top: 3.5rem;
+    display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: var(--near-black);
+    background: linear-gradient(135deg, var(--gold-light), var(--gold), #a8883a);
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    transition: all 0.4s;
+    border: none; cursor: pointer;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,168,76,0.3); }
+
+  .btn-outline {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    border: 0.5px solid rgba(201,168,76,0.5);
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    transition: all 0.4s;
+    background: transparent;
+    cursor: pointer;
+  }
+  .btn-outline:hover { border-color: var(--gold); background: rgba(201,168,76,0.05); }
+
+  /* ── SECTION BASE ── */
+  section { padding: 7rem 4rem; position: relative; }
+
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.5em;
+    color: rgba(201,168,76,0.5);
+    text-align: center;
+    margin-bottom: 0.8rem;
+  }
+
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.6rem, 3vw, 2.8rem);
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .gold-rule {
+    display: flex; align-items: center; gap: 1rem; justify-content: center;
+    margin-bottom: 4rem;
+  }
+  .gold-rule::before, .gold-rule::after {
+    content: ''; display: block; height: 0.5px;
+    width: 80px; background: linear-gradient(to right, transparent, var(--gold));
+  }
+  .gold-rule::after { background: linear-gradient(to left, transparent, var(--gold)); }
+  .gold-rule-dot { width: 4px; height: 4px; background: var(--gold); border-radius: 50%; }
+
+  /* ── ABOUT ── */
+  .about { background: #100609; }
+
+  .about-grid {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1px 1fr; gap: 0; align-items: center;
+  }
+
+  .about-text-col { padding: 2rem 5rem 2rem 0; }
+  .about-divider { background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.4), transparent); }
+  .about-detail-col { padding: 2rem 0 2rem 5rem; }
+
+  .about-text {
+    font-size: 1.25rem;
+    line-height: 2;
+    color: var(--text-body);
+    font-weight: 300;
+  }
+
+  .about-text em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .about-text p + p { margin-top: 1.5rem; }
+
+  .credential-item {
+    display: flex; align-items: flex-start; gap: 1.2rem;
+    padding: 1.5rem 0;
+    border-bottom: 0.5px solid rgba(201,168,76,0.1);
+  }
+  .credential-item:last-child { border-bottom: none; }
+
+  .cred-icon {
+    width: 36px; height: 36px; flex-shrink: 0;
+    border: 0.5px solid rgba(201,168,76,0.4);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .cred-icon svg { width: 18px; height: 18px; }
+
+  .cred-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+  .cred-desc {
+    font-size: 0.95rem;
+    color: var(--text-body);
+    line-height: 1.6;
+  }
+
+  /* ── SERVICES ── */
+  .services { background: var(--near-black); }
+
+  .services-grid {
+    max-width: 1200px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(201,168,76,0.15);
+    border: 0.5px solid rgba(201,168,76,0.2);
+  }
+
+  .service-card {
+    background: var(--near-black);
+    padding: 2.5rem 2rem;
+    transition: background 0.4s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+
+  .service-card:hover { background: rgba(90,20,35,0.2); }
+  .service-card:hover::before { opacity: 1; }
+
+  .service-num {
+    font-family: 'Cinzel', serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.3em;
+    color: rgba(201,168,76,0.3);
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+
+  .service-icon {
+    width: 44px; height: 44px;
+    border: 0.5px solid rgba(201,168,76,0.3);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.2rem;
+  }
+  .service-icon svg { width: 20px; height: 20px; stroke: var(--gold); fill: none; stroke-width: 1.2; }
+
+  .service-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .service-desc {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-body);
+    font-weight: 300;
+  }
+
+  /* ── PROCESS ── */
+  .process { background: #100609; }
+
+  .process-steps {
+    max-width: 900px; margin: 0 auto;
+    position: relative;
+  }
+
+  .process-line {
+    position: absolute; left: 28px; top: 40px; bottom: 40px;
+    width: 0.5px;
+    background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.4) 15%, rgba(201,168,76,0.4) 85%, transparent);
+  }
+
+  .process-step {
+    display: flex; gap: 3rem;
+    padding: 2rem 0; position: relative;
+  }
+
+  .step-num-wrap {
+    flex-shrink: 0;
+    width: 56px; height: 56px;
+    border: 0.5px solid rgba(201,168,76,0.5);
+    background: var(--near-black);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; z-index: 1;
+  }
+
+  .step-num {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    color: var(--gold);
+  }
+
+  .step-content { padding-top: 0.8rem; }
+
+  .step-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+  .step-desc {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-body);
+    max-width: 600px;
+  }
+
+  /* ── PRICING ── */
+  .pricing { background: var(--near-black); }
+
+  .pricing-wrapper {
+    max-width: 1000px; margin: 0 auto;
+    border: 0.5px solid rgba(201,168,76,0.25);
+    position: relative;
+  }
+
+  .pricing-wrapper::before {
+    content: ''; position: absolute; inset: 8px;
+    border: 0.5px solid rgba(201,168,76,0.08);
+    pointer-events: none;
+  }
+
+  .pricing-header {
+    background: linear-gradient(135deg, rgba(90,20,35,0.6), rgba(50,10,18,0.8));
+    padding: 3rem;
+    text-align: center;
+    border-bottom: 0.5px solid rgba(201,168,76,0.2);
+  }
+
+  .pricing-rate {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--gold);
+    margin: 0.5rem 0;
+  }
+
+  .pricing-rate-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    color: rgba(201,168,76,0.5);
+  }
+
+  .pricing-items {
+    padding: 2rem 3rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  }
+
+  .pricing-item {
+    padding: 2rem;
+    border-bottom: 0.5px solid rgba(201,168,76,0.08);
+    display: flex; gap: 1.2rem; align-items: flex-start;
+  }
+
+  .pricing-item:nth-child(odd) { border-right: 0.5px solid rgba(201,168,76,0.08); }
+
+  .pi-icon {
+    width: 36px; height: 36px; flex-shrink: 0;
+    border: 0.5px solid rgba(201,168,76,0.25);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 2px;
+  }
+  .pi-icon svg { width: 16px; height: 16px; stroke: var(--gold); fill: none; stroke-width: 1.2; }
+
+  .pi-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+
+  .pi-highlight {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    color: var(--gold-light);
+    margin-bottom: 0.3rem;
+  }
+
+  .pi-desc {
+    font-size: 0.9rem;
+    color: var(--text-body);
+    line-height: 1.7;
+  }
+
+  .pricing-footer {
+    padding: 2.5rem 3rem;
+    background: rgba(90,20,35,0.15);
+    border-top: 0.5px solid rgba(201,168,76,0.2);
+    text-align: center;
+  }
+
+  .pricing-tagline {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    color: rgba(201,168,76,0.6);
+    margin-bottom: 0.8rem;
+  }
+
+  .pricing-note {
+    font-size: 1rem;
+    color: var(--text-body);
+    line-height: 1.8;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  /* ── CONTACT ── */
+  .contact { background: #100609; }
+
+  .contact-inner {
+    max-width: 700px; margin: 0 auto; text-align: center;
+  }
+
+  .contact-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    font-weight: 300;
+    color: var(--off-white);
+    line-height: 1.7;
+    margin-bottom: 3.5rem;
+  }
+
+  .contact-info {
+    display: flex; flex-wrap: wrap; gap: 1px;
+    background: rgba(201,168,76,0.15);
+    border: 0.5px solid rgba(201,168,76,0.2);
+    margin-bottom: 3rem;
+  }
+
+  .contact-item {
+    flex: 1 1 200px;
+    background: var(--near-black);
+    padding: 2rem 1.5rem;
+    display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
+    transition: background 0.3s;
+  }
+  .contact-item:hover { background: rgba(90,20,35,0.2); }
+
+  .contact-item svg { width: 20px; height: 20px; stroke: var(--gold); fill: none; stroke-width: 1.2; }
+
+  .contact-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.35em;
+    color: rgba(201,168,76,0.5);
+  }
+
+  .contact-value {
+    font-size: 1rem;
+    color: var(--text-body);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  a.contact-value:hover { color: var(--gold); }
+
+  .contact-form {
+    display: flex; flex-direction: column; gap: 1rem;
+    text-align: left;
+  }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .form-field { display: flex; flex-direction: column; gap: 0.4rem; }
+
+  .form-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.3em;
+    color: rgba(201,168,76,0.5);
+  }
+
+  .form-input, .form-textarea, .form-select {
+    background: rgba(255,255,255,0.03);
+    border: 0.5px solid rgba(201,168,76,0.2);
+    color: var(--off-white);
+    padding: 0.8rem 1rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+    outline: none;
+    width: 100%;
+  }
+
+  .form-input:focus, .form-textarea:focus, .form-select:focus {
+    border-color: rgba(201,168,76,0.5);
+    background: rgba(201,168,76,0.03);
+  }
+
+  .form-textarea { min-height: 120px; resize: vertical; }
+
+  .form-select { appearance: none; cursor: pointer; }
+  .form-select option { background: #1a0a10; }
+
+  .form-submit {
+    margin-top: 1rem;
+    align-self: center;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--near-black);
+    border-top: 0.5px solid rgba(201,168,76,0.2);
+    padding: 3rem 4rem;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1.5rem;
+  }
+
+  .footer-brand {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+  }
+
+  .footer-copy {
+    font-size: 0.85rem;
+    color: rgba(201,168,76,0.3);
+    letter-spacing: 0.1em;
+  }
+
+  .footer-tagline {
+    font-family: 'Cinzel', serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.4em;
+    color: rgba(201,168,76,0.3);
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 5rem 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-divider { display: none; }
+    .about-text-col, .about-detail-col { padding: 1rem 0; }
+    .services-grid { grid-template-columns: 1fr; }
+    .pricing-items { grid-template-columns: 1fr; }
+    .pricing-item:nth-child(odd) { border-right: none; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { flex-direction: column; text-align: center; }
+    .contact-form { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">BURTON DESIGNS</a>
+  <ul class="nav-links">
+    <li><a href="#about">ABOUT</a></li>
+    <li><a href="#services">SERVICES</a></li>
+    <li><a href="#process">PROCESS</a></li>
+    <li><a href="#pricing">PRICING</a></li>
+    <li><a href="#contact">CONTACT</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">BOOK A CONSULTATION</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-texture"></div>
+  <div class="hero-border"></div>
+  <div class="hero-content">
+    <div class="monogram">
+      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#e2c47a"/>
+            <stop offset="50%" style="stop-color:#c9a84c"/>
+            <stop offset="100%" style="stop-color:#a8883a"/>
+          </linearGradient>
+          <linearGradient id="crimsonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#7a2535"/>
+            <stop offset="100%" style="stop-color:#3a0a0f"/>
+          </linearGradient>
+        </defs>
+        <!-- B letterform -->
+        <text x="10" y="88" font-family="Cinzel, serif" font-size="88" font-weight="600" fill="url(#goldGrad)">B</text>
+        <!-- D letterform offset -->
+        <text x="52" y="95" font-family="Cinzel, serif" font-size="72" font-weight="400" fill="url(#crimsonGrad)" opacity="0.85">D</text>
+      </svg>
+    </div>
+    <h1 class="hero-title">BURTON</h1>
+    <div class="hero-subtitle-rule">
+      <span></span>
+      <span class="hero-subtitle-word">DESIGNS</span>
+      <span></span>
+    </div>
+    <p class="hero-tagline">Beautiful spaces aren't just seen — they're felt.</p>
+    <p class="hero-sub-tagline">INTENTIONAL DESIGN TRANSFORMS EVERYDAY LIVING</p>
+    <div class="hero-cta-group">
+      <a href="#services" class="btn-primary">EXPLORE SERVICES</a>
+      <a href="#contact" class="btn-outline">GET IN TOUCH</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <p class="section-label reveal">ABOUT</p>
+  <h2 class="section-title reveal">KATIE BURTON</h2>
+  <div class="gold-rule reveal"><div class="gold-rule-dot"></div></div>
+  <div class="about-grid">
+    <div class="about-text-col reveal">
+      <div class="about-text">
+        <p>Based in <em>Arkansas</em>, Katie Burton brings a refined eye and personal touch to every project — creating spaces that are as functional as they are beautiful.</p>
+        <p>With a specialty in <em>interior decorating and spatial styling</em>, Katie works closely with each client to understand how they live, what they love, and how their space can better serve them.</p>
+        <p>Burton Designs offers <em>full-service design coordination</em>, from initial concept through final installation — including complete remodeling and interior work through trusted partners and in-house construction services.</p>
+      </div>
+    </div>
+    <div class="about-divider"></div>
+    <div class="about-detail-col reveal">
+      <div class="credential-item">
+        <div class="cred-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.2">
+            <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+          </svg>
+        </div>
+        <div>
+          <p class="cred-title">FULLY LICENSED</p>
+          <p class="cred-desc">Licensed for all interior work and remodeling — complete design solutions from concept to completion.</p>
+        </div>
+      </div>
+      <div class="credential-item">
+        <div class="cred-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <div>
+          <p class="cred-title">RESIDENTIAL & RENTAL</p>
+          <p class="cred-desc">Serving homeowners and short-term rental investors throughout Arkansas, including the Little Rock area.</p>
+        </div>
+      </div>
+      <div class="credential-item">
+        <div class="cred-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.2">
+            <circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+          </svg>
+        </div>
+        <div>
+          <p class="cred-title">THOUGHTFUL GUIDANCE</p>
+          <p class="cred-desc">Every decision is intentional — from the first consultation to the finishing touch that makes a room feel complete.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <p class="section-label reveal">WHAT WE OFFER</p>
+  <h2 class="section-title reveal">DESIGN SERVICES</h2>
+  <div class="gold-rule reveal"><div class="gold-rule-dot"></div></div>
+  <div class="services-grid">
+
+    <div class="service-card reveal">
+      <span class="service-num">01</span>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
+      </div>
+      <p class="service-title">INTERIOR DECORATING</p>
+      <p class="service-desc">Creating beautiful, functional spaces tailored to your style and how you live.</p>
+    </div>
+
+    <div class="service-card reveal">
+      <span class="service-num">02</span>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 3h8v8H3zM13 3h8v8h-8zM3 13h8v8H3zM13 13h8v8h-8z"/></svg>
+      </div>
+      <p class="service-title">SPACE PLANNING</p>
+      <p class="service-desc">Thoughtful layouts that maximize flow, function, and comfort in every room.</p>
+    </div>
+
+    <div class="service-card reveal">
+      <span class="service-num">03</span>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+      </div>
+      <p class="service-title">FURNISHING & LAYOUT SELECTION</p>
+      <p class="service-desc">Curated furniture and layout selections that bring your vision to life.</p>
+    </div>
+
+    <div class="service-card reveal">
+      <span class="service-num">04</span>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </div>
+      <p class="service-title">COLOR & MATERIAL GUIDANCE</p>
+      <p class="service-desc">Expert guidance to help you choose perfect colors, finishes, and materials with confidence.</p>
+    </div>
+
+    <div class="service-card reveal">
+      <span class="service-num">05</span>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <p class="service-title">CUSTOM FINISH DIRECTION</p>
+      <p class="service-desc">Tailored recommendations for cabinetry, hardware, fixtures, and the details that elevate your space.</p>
+    </div>
+
+    <div class="service-card reveal">
+      <span class="service-num">06</span>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <p class="service-title">SPATIAL STYLING</p>
+      <p class="service-desc">The finishing touches that bring warmth, character, and cohesion to every room.</p>
+    </div>
+
+    <div class="service-card reveal">
+      <span class="service-num">07</span>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <p class="service-title">ONE-DAY ROOM REFRESH</p>
+      <p class="service-desc">A focused, single-day transformation to refresh and elevate one space completely.</p>
+    </div>
+
+    <div class="service-card reveal">
+      <span class="service-num">08</span>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+      </div>
+      <p class="service-title">SHORT-TERM RENTAL STYLING</p>
+      <p class="service-desc">Strategic styling designed to attract guests and maximize your rental success.</p>
+    </div>
+
+    <div class="service-card reveal">
+      <span class="service-num">09</span>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      </div>
+      <p class="service-title">FURNISHING SELECTION ASSISTANCE</p>
+      <p class="service-desc">Personalized support to help you shop with confidence and make the right selections.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <p class="section-label reveal">HOW IT WORKS</p>
+  <h2 class="section-title reveal">THE PROCESS</h2>
+  <div class="gold-rule reveal"><div class="gold-rule-dot"></div></div>
+  <div class="process-steps">
+    <div class="process-line"></div>
+
+    <div class="process-step reveal">
+      <div class="step-num-wrap"><span class="step-num">I</span></div>
+      <div class="step-content">
+        <p class="step-title">CONSULTATION</p>
+        <p class="step-desc">We begin with a conversation — learning how you live, what you love, and what your space needs to become. Every project starts with listening.</p>
+      </div>
+    </div>
+
+    <div class="process-step reveal">
+      <div class="step-num-wrap"><span class="step-num">II</span></div>
+      <div class="step-content">
+        <p class="step-title">DESIGN PLANNING</p>
+        <p class="step-desc">Katie develops a thoughtful plan — space layout, color direction, material selections, and furnishing concepts — all tailored to your lifestyle and vision.</p>
+      </div>
+    </div>
+
+    <div class="process-step reveal">
+      <div class="step-num-wrap"><span class="step-num">III</span></div>
+      <div class="step-content">
+        <p class="step-title">SOURCING & SELECTION</p>
+        <p class="step-desc">Furniture, finishes, fixtures, and décor are sourced collaboratively. You stay informed and involved throughout every decision.</p>
+      </div>
+    </div>
+
+    <div class="process-step reveal">
+      <div class="step-num-wrap"><span class="step-num">IV</span></div>
+      <div class="step-content">
+        <p class="step-title">COORDINATION & DELIVERY</p>
+        <p class="step-desc">Burton Designs manages the full coordination — from contractor scheduling to installation — so you can enjoy the transformation without the stress.</p>
+      </div>
+    </div>
+
+    <div class="process-step reveal">
+      <div class="step-num-wrap"><span class="step-num">V</span></div>
+      <div class="step-content">
+        <p class="step-title">THE REVEAL</p>
+        <p class="step-desc">The finishing touches are placed with intention. Every object, every layer — styled to bring warmth, cohesion, and beauty to your completed space.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <p class="section-label reveal">INVESTMENT</p>
+  <h2 class="section-title reveal">PRICING & SERVICE INFORMATION</h2>
+  <div class="gold-rule reveal"><div class="gold-rule-dot"></div></div>
+  <div class="pricing-wrapper reveal">
+    <div class="pricing-header">
+      <p class="pricing-rate-label">HOURLY DESIGN SERVICES</p>
+      <p class="pricing-rate">$125 <span style="font-size:1.2rem; color: var(--gold-light);">/ hr</span></p>
+      <p style="font-size:0.95rem; color: var(--text-body); margin-top:0.5rem;">Includes consultations, sourcing, selections, layout guidance, styling support, and project coordination</p>
+    </div>
+    <div class="pricing-items">
+      <div class="pricing-item">
+        <div class="pi-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <p class="pi-title">MINIMUM APPOINTMENT</p>
+          <p class="pi-highlight">2-hour minimum</p>
+          <p class="pi-desc">All project appointments begin at a 2-hour minimum.</p>
+        </div>
+      </div>
+      <div class="pricing-item">
+        <div class="pi-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div>
+          <p class="pi-title">ADDITIONAL SUPPORT STAFF</p>
+          <p class="pi-highlight">$25 / hr per team member</p>
+          <p class="pi-desc">When assistance is required for installation or styling.</p>
+        </div>
+      </div>
+      <div class="pricing-item">
+        <div class="pi-icon">
+          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+        </div>
+        <div>
+          <p class="pi-title">FURNISHINGS & MATERIALS</p>
+          <p class="pi-highlight" style="color:#c97a5a;">Payment required at confirmation</p>
+          <p class="pi-desc">Selections are made collaboratively. Payment is required at the time items are confirmed for purchase.</p>
+        </div>
+      </div>
+      <div class="pricing-item">
+        <div class="pi-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <p class="pi-title">TRAVEL</p>
+          <p class="pi-highlight" style="color:#c97a5a;">Trip fee for extended travel</p>
+          <p class="pi-desc">Travel within the Little Rock area is included. Extended travel will include a trip fee.</p>
+        </div>
+      </div>
+    </div>
+    <div class="pricing-footer">
+      <p class="pricing-tagline">DESIGN. PLAN. COORDINATE. DELIVER.</p>
+      <p class="pricing-note">Burton Designs offers complete design solutions with the capability to coordinate and manage the work — through trusted partners and our in-house construction services when applicable.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <p class="section-label reveal">GET IN TOUCH</p>
+  <h2 class="section-title reveal">BEGIN YOUR PROJECT</h2>
+  <div class="gold-rule reveal"><div class="gold-rule-dot"></div></div>
+  <div class="contact-inner">
+    <p class="contact-quote reveal">"Every space has a story waiting to be told — let's tell yours."</p>
+    <div class="contact-info reveal">
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.64A2 2 0 012 .98h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        <span class="contact-label">PHONE</span>
+        <a href="tel:8707619715" class="contact-value">870-761-9715</a>
+      </div>
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span class="contact-label">EMAIL</span>
+        <a href="mailto:burtonkatie18@icloud.com" class="contact-value">burtonkatie18@icloud.com</a>
+      </div>
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span class="contact-label">LOCATION</span>
+        <span class="contact-value">Arkansas</span>
+      </div>
+    </div>
+
+    <form class="contact-form reveal" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-field">
+          <label class="form-label">FIRST NAME</label>
+          <input type="text" class="form-input" placeholder="First name" required>
+        </div>
+        <div class="form-field">
+          <label class="form-label">LAST NAME</label>
+          <input type="text" class="form-input" placeholder="Last name" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label class="form-label">PHONE</label>
+          <input type="tel" class="form-input" placeholder="Your phone number">
+        </div>
+        <div class="form-field">
+          <label class="form-label">EMAIL</label>
+          <input type="email" class="form-input" placeholder="Your email" required>
+        </div>
+      </div>
+      <div class="form-field">
+        <label class="form-label">SERVICE OF INTEREST</label>
+        <select class="form-select form-input">
+          <option value="">Select a service...</option>
+          <option>Interior Decorating</option>
+          <option>Space Planning</option>
+          <option>Furnishing & Layout Selection</option>
+          <option>Color & Material Guidance</option>
+          <option>Custom Finish Direction</option>
+          <option>Spatial Styling</option>
+          <option>One-Day Room Refresh</option>
+          <option>Short-Term Rental Styling</option>
+          <option>Furnishing Selection Assistance</option>
+          <option>Full Project — Not Sure Yet</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label class="form-label">TELL US ABOUT YOUR SPACE</label>
+        <textarea class="form-textarea" placeholder="Share a bit about your project, goals, or any questions you have..."></textarea>
+      </div>
+      <div class="form-submit">
+        <button type="submit" class="btn-primary">SEND MESSAGE</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <p class="footer-brand">BURTON DESIGNS</p>
+    <p class="footer-tagline" style="margin-top:0.4rem;">INTERIOR DECORATING & SPATIAL STYLING</p>
+  </div>
+  <p class="footer-copy">© 2025 Burton Designs · Arkansas</p>
+  <p class="footer-tagline">THOUGHTFUL GUIDANCE. BEAUTIFUL RESULTS.</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type="submit"]');
+    btn.textContent = 'MESSAGE SENT';
+    btn.style.background = 'linear-gradient(135deg, #7a9a5a, #5a7a3a)';
+    btn.style.color = '#fff';
+    setTimeout(() => {
+      btn.textContent = 'SEND MESSAGE';
+      btn.style.background = '';
+      btn.style.color = '';
+      e.target.reset();
+    }, 3000);
+  }
+</script>
+</body>
+</html>
